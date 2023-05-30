@@ -18,13 +18,13 @@ class CommonAppImage extends StatelessWidget {
 
   const CommonAppImage(
       {Key? key,
-        this.height,
-        this.width,
-        this.isCircular = false,
-        this.radius,
-        required this.imagePath,
-        this.color,
-        this.fit = BoxFit.cover})
+      this.height,
+      this.width,
+      this.isCircular = false,
+      this.radius,
+      required this.imagePath,
+      this.color,
+      this.fit = BoxFit.cover})
       : super(key: key);
 
   @override
@@ -40,64 +40,64 @@ class CommonAppImage extends StatelessWidget {
       child: imagePath.isEmpty
           ? const CircularProgressIndicator()
           : imagePath.contains("http")
-          ? imagePath.endsWith("svg")
-          ? SvgPicture.network(
-        imagePath,
-        height: height,
-        width: width,
-        color: color,
-        fit: fit,
-        placeholderBuilder: (context) {
-          return CommonAppShimmer.rectangular(
-            height: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.width,
-          );
-        },
-      )
-          : CachedNetworkImage(
-        imageUrl: imagePath,
-        height: height,
-        width: width,
-        color: color,
-        fit: fit,
-        placeholder: (context, value) {
-          return CommonAppShimmer.rectangular(
-            height: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.width,
-          );
-        },
-      )
-          : imagePath.contains("assets")
-          ? imagePath.endsWith("svg")
-          ? SvgPicture.asset(
-        imagePath,
-        height: height,
-        width: width,
-        color: color,
-        fit: fit,
-      )
-          : Image.asset(
-        imagePath,
-        height: height,
-        width: width,
-        color: color,
-        fit: fit,
-      )
-          : imagePath.endsWith("svg")
-          ? SvgPicture.file(
-        File(imagePath),
-        height: height,
-        width: width,
-        color: color,
-        fit: fit,
-      )
-          : Image.file(
-        File(imagePath),
-        height: height,
-        width: width,
-        color: color,
-        fit: fit,
-      ),
+              ? imagePath.endsWith("svg")
+                  ? SvgPicture.network(
+                      imagePath,
+                      height: height,
+                      width: width,
+                      color: color,
+                      fit: fit,
+                      placeholderBuilder: (context) {
+                        return CommonAppShimmer.rectangular(
+                          height: MediaQuery.of(context).size.height,
+                          width: MediaQuery.of(context).size.width,
+                        );
+                      },
+                    )
+                  : CachedNetworkImage(
+                      imageUrl: imagePath,
+                      height: height,
+                      width: width,
+                      color: color,
+                      fit: fit,
+                      placeholder: (context, value) {
+                        return CommonAppShimmer.rectangular(
+                          height: MediaQuery.of(context).size.height,
+                          width: MediaQuery.of(context).size.width,
+                        );
+                      },
+                    )
+              : imagePath.contains("assets")
+                  ? imagePath.endsWith("svg")
+                      ? SvgPicture.asset(
+                          imagePath,
+                          height: height,
+                          width: width,
+                          color: color,
+                          fit: fit,
+                        )
+                      : Image.asset(
+                          imagePath,
+                          height: height,
+                          width: width,
+                          color: color,
+                          fit: fit,
+                        )
+                  : imagePath.endsWith("svg")
+                      ? SvgPicture.file(
+                          File(imagePath),
+                          height: height,
+                          width: width,
+                          color: color,
+                          fit: fit,
+                        )
+                      : Image.file(
+                          File(imagePath),
+                          height: height,
+                          width: width,
+                          color: color,
+                          fit: fit,
+                        ),
     );
   }
 }

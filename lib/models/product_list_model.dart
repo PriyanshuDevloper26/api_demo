@@ -1,4 +1,6 @@
-class ProductDetailModel {
+// ignore_for_file: prefer_typing_uninitialized_variables, duplicate_ignore
+
+class ProductListModel {
   int? id;
   String? title;
   var price;
@@ -7,10 +9,10 @@ class ProductDetailModel {
   String? image;
   Rating? rating;
 
-  ProductDetailModel(
+  ProductListModel(
       {this.id, this.title, this.price, this.description, this.category, this.image, this.rating});
 
-  ProductDetailModel.fromJson(Map<String, dynamic> json) {
+  ProductListModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     title = json['title'];
     price = json['price'];
@@ -35,8 +37,10 @@ class ProductDetailModel {
   }
 }
 
+// ignore: duplicate_ignore, duplicate_ignore
 class Rating {
-  double? rate;
+  // ignore: prefer_typing_uninitialized_variables
+  var rate;
   int? count;
 
   Rating({this.rate, this.count});
